@@ -2,22 +2,23 @@
 Summary:	Powerful remote config and execution manager.
 Name:		python-%{appname}
 Version:	0.9.6
-Release:	0.1
+Release:	0.2
 License:	Apache 2.0
 Group:		Libraries/Python
 Source0:	https://github.com/downloads/saltstack/%{appname}/%{appname}-%{version}.tar.gz
 # Source0-md5:	8c1fe119e6f1fd96bc06614473509bf1
+Patch0:		%{name}-grains.patch
 URL:		http://saltstack.org/
 BuildRequires:	gettext
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
-%pyrequires_eq	python-modules
 Requires:	python-Crypto
 Requires:	python-M2Crypto
 Requires:	python-PyYAML
 Requires:	python-msgpack
 Requires:	python-pyzmq
+%pyrequires_eq	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,6 +28,7 @@ servers in a fast and efficient way.
 
 %prep
 %setup -q -n %{appname}-%{version}
+%patch0 -p1
 
 %build
 export CFLAGS="%{rpmcflags}"
