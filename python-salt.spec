@@ -1,12 +1,12 @@
 %define	appname	salt
 Summary:	Powerful remote config and execution manager.
 Name:		python-%{appname}
-Version:	0.9.6
-Release:	0.2
+Version:	0.9.9
+Release:	1
 License:	Apache 2.0
 Group:		Libraries/Python
 Source0:	https://github.com/downloads/saltstack/%{appname}/%{appname}-%{version}.tar.gz
-# Source0-md5:	8c1fe119e6f1fd96bc06614473509bf1
+# Source0-md5:	fa223f1abe5b80a5226bc987ff7735c5
 Patch0:		%{name}-grains.patch
 URL:		http://saltstack.org/
 BuildRequires:	gettext
@@ -18,6 +18,7 @@ Requires:	python-M2Crypto
 Requires:	python-PyYAML
 Requires:	python-msgpack
 Requires:	python-pyzmq
+Suggests:	python-jinja2
 %pyrequires_eq	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
