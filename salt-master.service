@@ -4,7 +4,8 @@ After=syslog.target network.target
 
 [Service]
 ExecStart=/usr/bin/salt-master -d
-Type=simple
+RemainAfterExit=yes
+Type=oneshot
 
 [Install]
 WantedBy=multi-user.target
