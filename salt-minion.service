@@ -1,0 +1,10 @@
+[Unit]
+Description=Salt Minion daemon
+After=syslog.target network.target
+
+[Service]
+ExecStart=/usr/bin/salt-minion -d
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

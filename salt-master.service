@@ -1,0 +1,10 @@
+[Unit]
+Description=Salt Master daemon
+After=syslog.target network.target
+
+[Service]
+ExecStart=/usr/bin/salt-master -d
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
