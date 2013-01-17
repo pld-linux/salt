@@ -1,16 +1,17 @@
 Summary:	Powerful remote config and execution manager.
 Name:		salt
-Version:	0.11.1
+Version:	0.12.0
 Release:	1
 License:	Apache 2.0
 Group:		Applications/System
 Source0:	http://pypi.python.org/packages/source/s/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	0e96a361a5bfb9a208a6a30b2537a7c2
+# Source0-md5:	56f586d9b1717bd414aa9657b6ee064b
 Source1:	%{name}-minion.service
 Source2:	%{name}-master.service
 URL:		http://saltstack.org/
 BuildRequires:	gettext
 BuildRequires:	python-devel
+BuildRequires:	python-jinja2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 Requires:	python-Crypto
@@ -115,6 +116,8 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/%{name}/cli/*.py[co]
 %dir %{py_sitescriptdir}/%{name}/ext
 %{py_sitescriptdir}/%{name}/ext/*.py[co]
+%dir %{py_sitescriptdir}/%{name}/fileserver
+%{py_sitescriptdir}/%{name}/fileserver/*.py[co]
 %dir %{py_sitescriptdir}/%{name}/grains
 %{py_sitescriptdir}/%{name}/grains/*.py[co]
 %dir %{py_sitescriptdir}/%{name}/modules
